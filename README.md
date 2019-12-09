@@ -139,6 +139,8 @@ Reference: https://exceptionnotfound.net/asp-net-mvc-demystified-action-filters/
         }
 ```
 
+Reference: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-3.1
+
 ### Bearer Event
 
 ```csharp
@@ -170,3 +172,6 @@ Reference: https://exceptionnotfound.net/asp-net-mvc-demystified-action-filters/
                     }
                 };
 ```
+
+Reference: https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authentication.jwtbearer.jwtbearerevents?view=aspnetcore-2.2
+
