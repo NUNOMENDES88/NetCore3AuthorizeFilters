@@ -17,6 +17,7 @@ For this example, the following code limits access to the EmployeesController to
 ```
 Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/simple?view=aspnetcore-3.1
 
+
 ###Role Authorization
 For this example, the following code limits access to the EmployeesController to users who are a member of the Role2 .
 
@@ -35,7 +36,9 @@ For this example, the following code limits access to the EmployeesController to
             return Ok("Filter By Role ");
         }
 ```
+
 Reference:https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-3.1
+
 
 ###Policy  Authorization
 Policies are applied to controllers by using the [Authorize] attribute with the policy name
@@ -62,7 +65,9 @@ Policies are applied to controllers by using the [Authorize] attribute with the 
             return Ok("Filter By Policy");
         }
 ```
+
 Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-3.1
+
 
 ### ActionFilter
 ```csharp
@@ -81,6 +86,7 @@ Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/p
         }
 ```
 
+
 ```csharp
         /// <summary>
         /// This method uses the Action Filter to validate reportId in claims
@@ -96,7 +102,9 @@ Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/p
             return Ok("Filter By Action Filter - Request Value");
         }
 ```
+
 ### Middleware
+
 ```csharp
   public async Task Invoke(
             HttpContext httpContext, 
@@ -115,7 +123,9 @@ Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/p
             await _next(httpContext);
         }
 ```
+
 ###Bearer Event
+
 ```csharp
                 options.Events = new JwtBearerEvents
                 {
