@@ -78,29 +78,8 @@ Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/p
 
 An action filter is an attribute. You can apply most action filters to either an individual controller action or an entire controller.
 
-#### Global Filter
-1º For this example, the following code limits access to the GetFilterByRolesInActionFilter method  to users who are a member of the 'Allow Roles' .
-
-```csharp
-        /// <summary>
-        /// This method uses the Action Filter to validate roles in claims
-        /// </summary>
-        /// <returns>Return the string</returns>
-        [RolesFilter("Role2")]
-        [HttpGet("GetFilterByRolesInActionFilter")]
-        [Consumes("application/json")]
-        [Produces("application/json")]
-        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
-        public IActionResult GetFilterByRolesInActionFilter()
-        {
-             return Ok("Filter By Action Filter - Roles");
-        }
-```
-
-
-
 #### Filter by route parameters
-2º For this example, the following code limits access to the GetFilterByRolesInActionFilter method to reports authorized in claims
+For this example, the following code limits access to the GetFilterByRolesInActionFilter only to the users that the id report passed through route is valid in the claims.
 
 ```csharp
         /// <summary>
@@ -120,6 +99,7 @@ An action filter is an attribute. You can apply most action filters to either an
 
 
 Reference: https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
+
 Reference: https://exceptionnotfound.net/asp-net-mvc-demystified-action-filters/
 
 
