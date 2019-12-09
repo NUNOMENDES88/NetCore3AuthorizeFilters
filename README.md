@@ -4,7 +4,7 @@ Authorization in MVC is controlled through the AuthorizeAttribute attribute and 
 
 ### Simple authorization
 
-For this example, the following code limits access to the EmployeesController to any authenticated user.
+For this example, the following code limits access to the controller to any authenticated user.
 
 ```csharp
     [Authorize]
@@ -18,9 +18,8 @@ For this example, the following code limits access to the EmployeesController to
 
 Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/simple?view=aspnetcore-3.1
 
-
 ### Role Authorization
-For this example, the following code limits access to the EmployeesController to users who are a member of the Role2 .
+For this example, the following code limits access to the GetFilterByRole to users who are members of the role 'Role2'.
 
 ```csharp
         /// <summary>
@@ -44,18 +43,20 @@ Reference:https://docs.microsoft.com/en-us/aspnet/core/security/authorization/ro
 ### Policy  Authorization
 Policies are applied to controllers by using the [Authorize] attribute with the policy name
 
-For this example, the following code limits access to the EmployeesController to users who are a member of the Role2 .
+For this example, the following code limits access to the GetFilterByPolicy to users who are a member of the Role2 .
 
 
 1º Create policy in startup file
 ```csharp
   services.AddAuthorization(options => 
-                { options.AddPolicy("PolicyRequireRole", policy => policy.RequireRole("Role2")); }
-                );
+    { 
+        options.AddPolicy("PolicyRequireRole", policy => policy.RequireRole("Role2")); 
+    }
+  );
 ```
 2º Add Policy in header
 ```csharp
- /// <summary>
+        /// <summary>
         /// This method uses the Policies to validate roles in claims
         /// </summary>
         /// <returns>Return the string</returns>
@@ -77,6 +78,7 @@ Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/p
 
 An action filter is an attribute. You can apply most action filters to either an individual controller action or an entire controller.
 
+#### Global Filter
 1º For this example, the following code limits access to the GetFilterByRolesInActionFilter method  to users who are a member of the 'Allow Roles' .
 
 ```csharp
@@ -95,6 +97,9 @@ An action filter is an attribute. You can apply most action filters to either an
         }
 ```
 
+
+
+#### Filter by route parameters
 2º For this example, the following code limits access to the GetFilterByRolesInActionFilter method to reports authorized in claims
 
 ```csharp
