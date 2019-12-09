@@ -1,13 +1,11 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
+using System;
 using System.Linq;
-using System.Security.Claims;
 
 namespace DemoRoles.Host.Filters
 {
     public class ReportFilter : ActionFilterAttribute
     {
-
         public override void OnActionExecuting(ActionExecutingContext actionExecutingContext)
         {
             //Contains Authorization header

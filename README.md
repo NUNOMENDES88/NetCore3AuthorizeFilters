@@ -44,6 +44,9 @@ Reference:https://docs.microsoft.com/en-us/aspnet/core/security/authorization/ro
 ### Policy  Authorization
 Policies are applied to controllers by using the [Authorize] attribute with the policy name
 
+For this example, the following code limits access to the EmployeesController to users who are a member of the Role2 .
+
+
 1º Create policy in startup file
 ```csharp
   services.AddAuthorization(options => 
@@ -71,6 +74,11 @@ Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/p
 
 
 ### ActionFilter
+
+An action filter is an attribute. You can apply most action filters to either an individual controller action or an entire controller.
+
+1º For this example, the following code limits access to the GetFilterByRolesInActionFilter method  to users who are a member of the 'Allow Roles' .
+
 ```csharp
         /// <summary>
         /// This method uses the Action Filter to validate roles in claims
@@ -87,6 +95,7 @@ Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/p
         }
 ```
 
+2º For this example, the following code limits access to the GetFilterByRolesInActionFilter method to reports authorized in claims
 
 ```csharp
         /// <summary>
@@ -103,6 +112,11 @@ Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/p
             return Ok("Filter By Action Filter - Request Value");
         }
 ```
+
+
+Reference: https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
+Reference: https://exceptionnotfound.net/asp-net-mvc-demystified-action-filters/
+
 
 ### Middleware
 
