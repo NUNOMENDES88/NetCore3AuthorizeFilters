@@ -1,9 +1,11 @@
 # Authorization in ASP.NET Core
 
-###Simple authorization
-Authorization in MVC is controlled through the AuthorizeAttribute attribute and its various parameters. At its simplest, applying the AuthorizeAttribute attribute to a controller or action limits access to the controller or action to any authenticated user.
+Authorization in MVC is controlled through the AuthorizeAttribute attribute and its various parameters.
 
-For example, the following code limits access to the AccountController to any authenticated user.
+###Simple authorization
+
+For this example, the following code limits access to the EmployeesController to any authenticated user.
+
 ```csharp
     [Authorize]
     [Route("api/v1/Employees")]
@@ -16,9 +18,8 @@ For example, the following code limits access to the AccountController to any au
 Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/simple?view=aspnetcore-3.1
 
 ###Role Authorization
-Role-based authorization checks are declarative—the developer embeds them within their code, against a controller or an action within a controller, specifying roles which the current user must be a member of to access the requested resource.
+For this example, the following code limits access to the EmployeesController to users who are a member of the Role2 .
 
-For example, the following code limits access to any actions on the AdministrationController to users who are a member of the Administrator role:
 ```csharp
         /// <summary>
         /// This method uses the Authorize to validate roles in claims
@@ -34,9 +35,20 @@ For example, the following code limits access to any actions on the Administrati
             return Ok("Filter By Role ");
         }
 ```
+Reference:https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-3.1
+
 ###Policy  Authorization
+Policies are applied to controllers by using the [Authorize] attribute with the policy name
+
+1º Create policy in startup file
 ```csharp
-        /// <summary>
+  services.AddAuthorization(options => 
+                { options.AddPolicy("PolicyRequireRole", policy => policy.RequireRole("Role2")); }
+                );
+```
+2º Add Policy in header
+```csharp
+ /// <summary>
         /// This method uses the Policies to validate roles in claims
         /// </summary>
         /// <returns>Return the string</returns>
