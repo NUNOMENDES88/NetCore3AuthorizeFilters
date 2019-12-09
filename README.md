@@ -62,6 +62,8 @@ Policies are applied to controllers by using the [Authorize] attribute with the 
             return Ok("Filter By Policy");
         }
 ```
+Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-3.1
+
 ### ActionFilter
 ```csharp
         /// <summary>
