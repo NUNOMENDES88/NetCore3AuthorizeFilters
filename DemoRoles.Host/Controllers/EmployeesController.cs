@@ -8,7 +8,7 @@ namespace DemoRoles.Host.Controllers
 {
 
     [Authorize]
-    [Route("api/Employees")]
+    [Route("api/v1/Employees")]
     [ApiController]
     public class EmployeesController : ControllerBase
     {
