@@ -2,7 +2,7 @@
 
 Authorization in MVC is controlled through the AuthorizeAttribute attribute and its various parameters.
 
-##Simple authorization
+### Simple authorization
 
 For this example, the following code limits access to the EmployeesController to any authenticated user.
 
@@ -19,7 +19,7 @@ For this example, the following code limits access to the EmployeesController to
 Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/simple?view=aspnetcore-3.1
 
 
-###Role Authorization
+### Role Authorization
 For this example, the following code limits access to the EmployeesController to users who are a member of the Role2 .
 
 ```csharp
@@ -41,7 +41,7 @@ For this example, the following code limits access to the EmployeesController to
 Reference:https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-3.1
 
 
-###Policy  Authorization
+### Policy  Authorization
 Policies are applied to controllers by using the [Authorize] attribute with the policy name
 
 1º Create policy in startup file
@@ -125,7 +125,7 @@ Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/p
         }
 ```
 
-###Bearer Event
+### Bearer Event
 
 ```csharp
                 options.Events = new JwtBearerEvents
