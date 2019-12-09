@@ -2,7 +2,7 @@
 
 Authorization in MVC is controlled through the AuthorizeAttribute attribute and its various parameters.
 
-###Simple authorization
+##Simple authorization
 
 For this example, the following code limits access to the EmployeesController to any authenticated user.
 
