@@ -13,8 +13,9 @@ For this example, the following code limits access to the EmployeesController to
     public class EmployeesController : ControllerBase
     {
 	
-	}
+    }
 ```
+
 Reference: https://docs.microsoft.com/en-us/aspnet/core/security/authorization/simple?view=aspnetcore-3.1
 
 
